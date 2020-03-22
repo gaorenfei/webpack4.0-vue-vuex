@@ -23,7 +23,7 @@ module.exports = {
   //如果这些全局变量是合规的，可以在globals中配置，避免这些全局变量发出警告
   globals: {
     //配置给全局变量的布尔值，是用来控制该全局变量是否允许被重写
-    NODE_ENV: false
+    process: false
   },
   //支持第三方插件的规则，插件以eslint-plugin-作为前缀，配置时该前缀可省略
   //检查vue文件需要eslint-plugin-vue插件
@@ -34,7 +34,8 @@ module.exports = {
   //规则级别分别：为"off"(0)关闭、"warn"(1)警告、"error"(2)错误--error触发时，程序退出
   rules: {
     //关闭“禁用console”规则
-    "no-console": "off",
+    "no-console": 0,
+    "no-debugger": process.env.NODE_ENV === "production" ? 2 : 0,
     //缩进不规范警告，要求缩进为2个空格，默认值为4个空格
     indent: [
       "warn",

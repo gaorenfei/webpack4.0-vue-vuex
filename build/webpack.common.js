@@ -3,9 +3,10 @@ const config = require("./config");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin"); //html 模板插件
 const VueLoaderPlugin = require("vue-loader/lib/plugin"); //vue解析loader
+const DotenvFlow = require("dotenv-flow-webpack"); //配置env文件
 
-module.exports = (env, argv) => {
-  const NODE_ENV = env.NODE_ENV;
+module.exports = env => {
+  console.log(process.env.NODE_ENV);
   return {
     entry: {
       main: path.join(__dirname, "../src/main.js")
@@ -17,7 +18,8 @@ module.exports = (env, argv) => {
       publicPath: "/"
     },
     module: {
-      rules: [{
+      rules: [
+        {
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
           enforce: "pre",
@@ -68,8 +70,11 @@ module.exports = (env, argv) => {
         chunksSortMode: "none",
         hash: true
       }),
+      new DotenvFlow(),
       new webpack.DefinePlugin({
-        NODE_ENV: JSON.stringify("development") // 定义环境变量
+        "process.env": {
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        }
       }),
       new VueLoaderPlugin()
     ]
