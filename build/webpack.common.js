@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin"); //html 模板插件
 const VueLoaderPlugin = require("vue-loader/lib/plugin"); //vue解析loader
 const DotenvFlow = require("dotenv-flow-webpack"); //配置env文件
 
-module.exports = env => {
+module.exports = () => {
   console.log(process.env.NODE_ENV);
   return {
     entry: {
@@ -18,8 +18,7 @@ module.exports = env => {
       publicPath: "/"
     },
     module: {
-      rules: [
-        {
+      rules: [{
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
           enforce: "pre",
