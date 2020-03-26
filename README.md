@@ -11,6 +11,10 @@ npm run build
 
 npm run start
 
-# .env 文件为配置文件
+# .env 文件为环境配置文件
 
 根据命令获取对应.env 里的值
+
+# 安装 debugger for chrome
+
+配置 launch.json 文件可以进行.vue 文件代码 debugger 调试
