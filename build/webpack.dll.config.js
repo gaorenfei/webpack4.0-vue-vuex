@@ -8,7 +8,8 @@ var vendors = [
     "core-js",
     "vue",
     "vue-router",
-    "vuex"
+    "vuex",
+    "axios"
 ];
 
 module.exports = {
