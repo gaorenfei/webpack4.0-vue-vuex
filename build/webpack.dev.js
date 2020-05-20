@@ -23,7 +23,7 @@ module.exports = (env, argv) =>
         "*": {
           target: "",
           secure: false,
-          changeOrigin: true,
+          changeOrigin: true
         }
       }
     },
@@ -35,13 +35,15 @@ module.exports = (env, argv) =>
       })
     ],
     module: {
-      rules: [{
+      rules: [
+        {
           test: /\.css$/,
           use: ["style-loader", "css-loader"]
         },
         {
           test: /\.less/,
-          use: [{
+          use: [
+            {
               loader: "style-loader"
             },
             {

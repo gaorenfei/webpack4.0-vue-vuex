@@ -18,7 +18,8 @@ module.exports = () => {
       publicPath: "/"
     },
     module: {
-      rules: [{
+      rules: [
+        {
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
           enforce: "pre",
@@ -31,21 +32,19 @@ module.exports = () => {
         },
         {
           test: /\.vue$/,
-          loader: "vue-loader",
-          include: config.srcPath,
-          exclude: /node_modules/
+          loader: "vue-loader"
         },
         {
-          test: /\.(png|jpg|gif|woff|woff2)$/,
-          include: config.srcPath,
-          loader: "url-loader?limit=8192&name=images/[hash:8].[name].[ext]",
-          exclude: /node_modules/
+          test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+          loader: "url-loader?limit=10000&name=images/[hash:8].[name].[ext]"
         },
         {
-          test: /\.(ttf|eot|mp4|ogg|svg)$/,
-          include: config.srcPath,
-          loader: "file-loader",
-          exclude: /node_modules/
+          test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+          loader: "url-loader?limit=10000&name=media/[hash:8].[name].[ext]"
+        },
+        {
+          test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+          loader: "url-loader?limit=10000&name=font/[hash:8].[name].[ext]"
         }
       ]
     },
