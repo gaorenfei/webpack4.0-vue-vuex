@@ -77,6 +77,9 @@ module.exports = (env, argv) =>
         manifest: path.resolve(__dirname, "../dll/manifest.json")
       })
     ],
+    performance: {
+      hints: false //警告信息不显示
+    },
     optimization: {
       usedExports: true, // tree shaking  package.json中也做了css排除配置
       splitChunks: {
