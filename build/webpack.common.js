@@ -36,15 +36,29 @@ module.exports = () => {
         },
         {
           test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-          loader: "url-loader?limit=10000&name=images/[hash:8].[name].[ext]"
+          loader: "url-loader",
+          options: {
+            esModule:false,
+            limit: 10000,
+            name: "static/img/[name].[hash:7].[ext]"
+          }
         },
         {
           test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-          loader: "url-loader?limit=10000&name=media/[hash:8].[name].[ext]"
+          loader: "url-loader",
+          options: {
+            limit: 10000,
+            name: "static/media/[name].[hash:7].[ext]"
+          }
         },
         {
           test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-          loader: "url-loader?limit=10000&name=font/[hash:8].[name].[ext]"
+          loader: "url-loader",
+          options: {
+            esModule:false,
+            limit: 10000,
+            name: "static/fonts/[name].[hash:7].[ext]"
+          }
         }
       ]
     },
