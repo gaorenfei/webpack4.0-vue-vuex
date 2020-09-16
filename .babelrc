@@ -4,7 +4,10 @@
       "@babel/preset-env",
       {
         "useBuiltIns": "entry",
-        "corejs": 2
+        "corejs": 2,
+        "targets": {
+          "esmodules": true
+        }
       }
     ]
   ],
