@@ -1,19 +1,19 @@
-{
-  "presets": [
+module.exports = {
+  presets: [
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "entry",
-        "corejs": 2,
-        "targets": {
-          "esmodules": true
+        useBuiltIns: "entry",
+        corejs: 2,
+        targets: {
+          esmodules: true
         }
       }
     ]
   ],
-  "plugins": [
+  plugins: [
     "@babel/plugin-transform-runtime",
     "@babel/plugin-syntax-dynamic-import",
     "transform-vue-jsx"
   ]
-}
+};
