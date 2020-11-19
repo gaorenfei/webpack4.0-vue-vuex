@@ -2,15 +2,27 @@
   <div class="login">
     <p @click="login">{{ message }}</p>
     <p @click="logout">{{ account }}</p>
+    <Item :id="id" :add="add" @test="test"></Item>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Item from "@/component/jsx";
 export default {
+  components: {
+    Item,
+  },
   data() {
     return {
-      message: "登录"
+      message: "登录",
+      id: 0
+    };
+  },
+  provide() {
+    //在这里对外提供方法，在子孙组件中都可以用这个
+    return {
+      add: this.add
     };
   },
   methods: {
@@ -26,6 +38,15 @@ export default {
       if (isPass) {
         this.$router.push("/home");
       }
+    },
+    add() {
+      this.id = this.id + 1;
+    },
+    test(num){
+      console.log(num)
+    },
+    test2(){
+      console.log("test")
     }
   },
   computed: {
