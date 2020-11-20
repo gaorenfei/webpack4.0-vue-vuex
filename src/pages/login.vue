@@ -6,9 +6,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters, mapActions } from "vuex";
-import Item from "@/component/jsx";
+import Item from "@/component/jsx.vue";
 export default {
   components: {
     Item,
@@ -34,7 +34,7 @@ export default {
       this.go_login("grf");
     },
     async logout() {
-      let isPass = await this.go_logout("退出");
+      let isPass:boolean|string = await this.go_logout("退出");
       if (isPass) {
         this.$router.push("/home");
       }
@@ -42,7 +42,7 @@ export default {
     add() {
       this.id = this.id + 1;
     },
-    test(num){
+    test(num:number){
       console.log(num)
     },
     test2(){

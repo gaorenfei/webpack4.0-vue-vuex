@@ -1,8 +1,8 @@
-function loadView(view) {
+function loadView(view:string):object {
   return () => import(/* webpackChunkName: "[request]" */ `@/pages/${view}`);
 }
 
-const defaultRoutes = [
+const defaultRoutes:Array<object> = [
   {
     path: "/",
     redirect: "/login"
@@ -19,7 +19,7 @@ const defaultRoutes = [
   },
   {
     path: "/404",
-    component: () => import("@/pages/404"),
+    component: () => loadView("404"),
     hidden: true
   }
 ];

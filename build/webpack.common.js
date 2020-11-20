@@ -9,7 +9,7 @@ module.exports = () => {
   console.log(process.env.NODE_ENV);
   return {
     entry: {
-      main: path.join(__dirname, "../src/main.js")
+      main: path.join(__dirname, "../src/main.ts")
     },
     output: {
       filename: "app.js", // 打包后文件名为app.js
@@ -28,6 +28,20 @@ module.exports = () => {
           //eslint检查报告的格式规范
           options: {
             formatter: require("eslint-friendly-formatter")
+          }
+        },
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          enforce: "pre",
+          loader: "tslint-loader"
+        },
+        {
+          test: /\.tsx?$/,
+          loader: "ts-loader",
+          exclude: /node_modules/,
+          options: {
+            appendTsSuffixTo: [/\.vue$/],
           }
         },
         {
@@ -63,7 +77,7 @@ module.exports = () => {
       ]
     },
     resolve: {
-      extensions: [".js", ".vue", ".json"],
+      extensions: [".js", ".vue", ".json", "ts", "tsx"],
       alias: {
         // 引入模块别名
         "@": `${config.srcPath}`,

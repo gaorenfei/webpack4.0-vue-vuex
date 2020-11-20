@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import storeModules from "./store"
+import storeModules from "@/store/store.ts"
 Vue.use(Vuex);
 
 export default new Vuex.Store({

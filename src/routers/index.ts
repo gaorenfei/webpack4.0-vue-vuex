@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 // import store from "@/store";
-import routes from "routers/routers";
+import routes from "@/routers/routers.ts";
 Vue.use(VueRouter);
 
 const createRouter = () =>
@@ -18,26 +18,9 @@ router.onError(error => {
   console.log(error, "错误了哦!!!");
 });
 
-// router.beforeEach(async (to, from, next) => {
-//   if (to.path === "/invite-more") {
-//     next();
-//   }
-//   const hasToken = getToken();
-//   if (hasToken) {
-//     try {
-//       const res = await fetchLoginInfo();
-//       if (res.userName) {
-//         next("/invite-more");
-//       } else {
-//         next();
-//       }
-//     } catch (e) {
-//       next();
-//     }
-//   } else {
-//     next();
-//   }
-// });
+router.beforeEach(async (to, from, next) => {
+  console.log("router before");
+});
 
 router.afterEach(to => {
   console.log("router after");

@@ -2,7 +2,7 @@
   <div class="login">{{ message }}</div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   data() {
     return {
