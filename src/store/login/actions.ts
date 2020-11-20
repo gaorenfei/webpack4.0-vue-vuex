@@ -1,7 +1,7 @@
 // import {
 //   resetRouter
 // } from "@/routers";
-import types from "@/store/login/type.ts";
+import types from "./type";
 
 export default {
   go_login({ commit }, name:any) {

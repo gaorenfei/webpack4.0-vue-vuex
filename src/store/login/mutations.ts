@@ -1,4 +1,4 @@
-import types from "@/store/login/type.ts";
+import types from "./type";
 
 export default {
   [types.LOGIN](state:any, account:any) {

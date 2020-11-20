@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './app.vue'
 import '@babel/polyfill' // 兼容IE
 import 'styles/app.less'
-import router from '@/routers/index.ts'
-import store from '@/store/index.ts'
+import router from '@/routers'
+import store from '@/store'
 import Component from 'vue-class-component'
 
 Component.registerHooks([
@@ -12,12 +12,12 @@ Component.registerHooks([
   'beforeRouteUpdate'
 ])
 Vue.config.productionTip = false
-new Vue({
+const vue = new Vue({
   el: '#root',
   router,
   store,
   render: h => h(App)
-});
+})
 
 // webpack进行热更新
 if ((module as any).hot) {

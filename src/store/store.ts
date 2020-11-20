@@ -1,4 +1,4 @@
-import login from "@/store/login/index.ts";
+import login from "./login";
 
 export default {
   login
