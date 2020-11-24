@@ -1,27 +1,27 @@
-function loadView(view:string):object {
-  return () => import(/* webpackChunkName: "[request]" */ `@/pages/${view}`);
+function loadView(view){
+  return () => import(/* webpackChunkName: "[request]" */ `@/pages/${view}.vue`);
 }
 
-const defaultRoutes:Array<object> = [
+const defaultRoutes = [
   {
     path: "/",
     redirect: "/login"
-  },
-  {
-    path: "/home",
-    component: loadView("home"),
-    hidden: true
   },
   {
     path: "/login",
     component: loadView("login"),
     hidden: true
   },
-  {
-    path: "/404",
-    component: () => loadView("404"),
-    hidden: true
-  }
+  // {
+  //   path: "/home",
+  //   component: loadView("home"),
+  //   hidden: true
+  // },
+  // {
+  //   path: "/404",
+  //   component: () => loadView("404"),
+  //   hidden: true
+  // }
 ];
 
 export default defaultRoutes;

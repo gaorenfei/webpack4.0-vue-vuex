@@ -1,60 +1,67 @@
 <template>
   <div class="login">
-    <p @click="login">{{ message }}</p>
+    464654646546546465465465
+    <!-- <p @click="login">{{ message }}</p>
     <p @click="logout">{{ account }}</p>
-    <Item :id="id" :add="add" @test="test"></Item>
+    <Item :id="id" :add="add" @test="test"></Item> -->
   </div>
 </template>
 
 <script lang="ts">
-import { mapGetters, mapActions } from "vuex";
-import Item from "@/component/jsx.vue";
-export default {
-  components: {
-    Item,
-  },
-  data() {
-    return {
-      message: "登录",
-      id: 0
-    };
-  },
-  provide() {
-    //在这里对外提供方法，在子孙组件中都可以用这个
-    return {
-      add: this.add
-    };
-  },
-  methods: {
-    ...mapActions({
-      go_login: "login/go_login",
-      go_logout: "login/go_logout"
-    }),
-    login() {
-      this.go_login("grf");
-    },
-    async logout() {
-      let isPass:boolean|string = await this.go_logout("退出");
-      if (isPass) {
-        this.$router.push("/home");
-      }
-    },
-    add() {
-      this.id = this.id + 1;
-    },
-    test(num:number){
-      console.log(num)
-    },
-    test2(){
-      console.log("test")
-    }
-  },
-  computed: {
-    ...mapGetters({
-      account: "login/account"
-    })
-  }
-};
+import Vue from "vue"
+import Component from "vue-class-component"
+@Component({
+})
+export default class login extends Vue {
+}
+// import { mapGetters, mapActions } from "vuex";
+// import Item from "@/component/jsx.vue";
+// export default {
+//   components: {
+//     Item,
+//   },
+//   data() {
+//     return {
+//       message: "登录",
+//       id: 0
+//     };
+//   },
+//   provide() {
+//     //在这里对外提供方法，在子孙组件中都可以用这个
+//     return {
+//       add: this.add
+//     };
+//   },
+//   methods: {
+//     ...mapActions({
+//       go_login: "login/go_login",
+//       go_logout: "login/go_logout"
+//     }),
+//     login() {
+//       this.go_login("grf");
+//     },
+//     async logout() {
+//       let isPass:boolean|string = await this.go_logout("退出");
+//       if (isPass) {
+//         this.$router.push("/home");
+//       }
+//     },
+//     add() {
+//       this.id = this.id + 1;
+//     },
+//     test(num:number){
+//       console.log(num)
+//     },
+//     test2(){
+//       console.log("test")
+//     }
+//   },
+//   computed: {
+//     ...mapGetters({
+//       account: "login/account"
+//     })
+//   }
+// };
 </script>
 
 <style lang="less" scoped>

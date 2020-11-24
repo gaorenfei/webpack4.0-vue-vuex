@@ -3,13 +3,12 @@
 </template>
 
 <script lang="ts">
-export default {
-  data() {
-    return {
-      message: "404"
-    };
-  }
-};
+import Vue from "vue"
+import Component from "vue-class-component"
+@Component({
+})
+export default class NoPage extends Vue {
+}
 </script>
 
 <style lang="less" scoped>
